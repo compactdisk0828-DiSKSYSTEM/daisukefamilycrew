@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DFC - DAISUKE FAMILY CREW | Dance Style</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&family=Cinzel:wght@400;700&family=Inter:wght@300;400;700&family=Oswald:wght@400;700&display=swap');
+
+        :root {
+            --bg-base: #f7f5f2;       /* オフホワイト */
+            --bg-dark: #1a1a1a;       /* 墨色 */
+            --accent-gold: #b59a6d;    /* ゴールド */
+            --text-main: #2d2d2d;     /* 墨色の文字 */
+            --text-on-dark: #f7f5f2;
+        }
+
+        body {
+            font-family: 'Shippori Mincho', serif;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        .font-oswald { font-family: 'Oswald', sans-serif; }
+        .font-cinzel { font-family: 'Cinzel', serif; }
+        .font-inter { font-family: 'Inter', sans-serif; }
+
+        /* 和モダンなテクスチャ */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        /* ヒーローセクションのオーバーレイ */
+        .hero-gradient {
+            background: linear-gradient(rgba(247, 245, 242, 0.4), rgba(247, 245, 242, 1));
+        }
+
+        /* セクションタイトル */
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent-gold);
+            margin-top: 15px;
+        }
+
+        /* ホバーリフト効果 */
+        .hover-lift {
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-8px);
+        }
+
+        /* アニメーション */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        /* ナビゲーションリンク */
+        .nav-link {
+            position: relative;
+            padding-bottom: 4px;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; width: 0; height: 1px;
+            background: var(--accent-gold);
+            transition: width 0.4s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        /* スクロールダウンの装飾 */
+        .scroll-line {
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(to bottom, transparent, var(--accent-gold), transparent);
+            position: relative;
+            overflow: hidden;
+        }
+        .scroll-line::after {
+            content: '';
+            position: absolute;
+            top: -60px; left: 0; width: 100%; height: 100%;
+            background: var(--text-main);
+            animation: scroll-anim 2s infinite;
+        }
+        @keyframes scroll-anim {
+            0% { top: -60px; }
+            100% { top: 60px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-zinc-100 px-6 py-4 md:px-12">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <!-- DFC Logo -->
+                <img src="https://raw.githubusercontent.com/compactdisk0828-DiSKSYSTEM/daisukefamilycrew/main/DFC-logo.jpg" alt="DFC Logo" class="h-8 md:h-10">
+                <span class="font-cinzel text-xl md:text-2xl tracking-tighter font-bold">DFC <span class="text-[#b59a6d]">STYLE</span></span>
+            </div>
+            <div class="hidden md:flex space-x-10 font-inter text-[10px] tracking-[0.3em] uppercase font-bold text-zinc-500">
+                <a href="#concept" class="nav-link">Concept</a>
+                <a href="#instructor" class="nav-link">Instructor</a>
+                <a href="#schedule" class="nav-link">Schedule</a>
+                <a href="#join" class="bg-zinc-900 px-6 py-3 rounded-sm text-white hover:bg-[#b59a6d] transition duration-500">Inquiry</a>
+            </div>
+            <button class="md:hidden text-2xl text-zinc-900"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden bg-white">
+        <div class="absolute inset-0 z-0">
+            <img src="592455046264783173.jpg" alt="Hero Dance" class="w-full h-full object-cover opacity-30 grayscale">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-6">
+            <div class="overflow-hidden mb-6">
+                <p class="font-inter text-xs md:text-sm tracking-[0.6em] text-zinc-400 reveal uppercase">Where there's a will, there's a way.</p>
+            </div>
+            <h1 class="font-cinzel text-6xl md:text-9xl font-bold mb-12 leading-none tracking-widest text-zinc-900 reveal" style="transition-delay: 0.3s;">
+                DFC <br class="md:hidden"> <span class="text-[#b59a6d]">DANCE</span>
+            </h1>
+            <div class="reveal" style="transition-delay: 0.6s;">
+                <a href="#join" class="inline-block border border-zinc-900 px-12 py-5 text-xs font-bold uppercase tracking-[0.3em] hover:bg-zinc-900 hover:text-white transition duration-700">
+                    体験レッスンを申し込む
+                </a>
+            </div>
+            <div class="flex flex-col items-center mt-20 reveal" style="transition-delay: 0.9s;">
+                <div class="scroll-line"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Concept -->
+    <section id="concept" class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-20 items-center">
+            <div class="reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-10 section-title font-cinzel uppercase tracking-widest">Concept</h2>
+                <div class="space-y-8 text-zinc-500 leading-loose">
+                    <p class="text-lg text-zinc-800 font-bold">「意志あるところに、道は開ける」</p>
+                    <p>
+                        DFC（DAISUKE FAMILY CREW）は、ただダンスの技術を磨くだけの場所ではありません。
+                        日常の役割を脱ぎ捨て、一人の表現者として呼吸するための「静かなる情熱」の空間です。
+                    </p>
+                    <p>
+                        音楽の深淵に触れ、仲間と高め合う。大人たちが本気で自分を解放できるサードプレイスとして、本物のストリートスタイルを追求しています。
+                    </p>
+                </div>
+            </div>
+            <div class="relative reveal" style="transition-delay: 0.3s;">
+                <div class="absolute -top-10 -right-10 vertical-text hidden lg:block">
+                    <p class="text-[10px] tracking-[1em] text-zinc-300 font-inter uppercase">Family Crew Presence</p>
+                </div>
+                <div class="overflow-hidden shadow-2xl bg-zinc-100">
+                    <!-- Dance Concept Image -->
+                    <img src="https://raw.githubusercontent.com/compactdisk0828-DiSKSYSTEM/daisukefamilycrew/main/Daisukesdance2.jpg" alt="Dance Concept" class="w-full grayscale hover:scale-105 transition duration-1000">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructor -->
+    <section id="instructor" class="py-32 bg-zinc-900 text-zinc-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-20 items-center">
+                <div class="w-full md:w-5/12 reveal">
+                    <div class="relative">
+                        <div class="absolute inset-0 border border-[#b59a6d]/30 translate-x-6 translate-y-6 -z-10"></div>
+                        <!-- Instructor Daisuke Image -->
+                        <img src="https://raw.githubusercontent.com/compactdisk0828-DiSKSYSTEM/daisukefamilycrew/main/Daisukedance.jpg" alt="Instructor Daisuke" class="w-full grayscale contrast-125 brightness-90">
+                        <div class="absolute bottom-6 right-6 bg-[#b59a6d] px-8 py-4">
+                            <p class="font-cinzel text-xl font-bold italic text-white tracking-widest">Daisuke</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-7/12 reveal" style="transition-delay: 0.3s;">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 section-title font-cinzel uppercase tracking-widest">Instructor</h2>
+                    <h3 class="text-2xl font-bold mb-8 text-[#b59a6d]">Daisuke <span class="text-xs font-normal text-zinc-500 ml-4 tracking-[0.2em] font-inter">CHIEF DIRECTOR</span></h3>
+                    <div class="text-zinc-400 leading-loose mb-10 max-w-xl space-y-4">
+                        <p>
+                            長年、ストリートシーンの最前線で活動。その独特なグルーヴと、一人ひとりの個性を引き出す指導力には定評がある。
+                            「ダンスは技術以上に、マインドが重要」という信念のもと、国内外のステージで培った経験を次世代、そしてダンスを愛する大人たちに伝えている。
+                        </p>
+                        <p class="text-sm pt-4 border-t border-zinc-800">
+                            合同会社SxKxB CEO（イベント企画・制作・運営）<br>
+                            認知症予防健康運動「ブレリズム」開発者<br>
+                            趣味はバイク、旅行、釣り。
+                        </p>
+                    </div>
+                    <div class="flex space-x-8 text-2xl text-zinc-500">
+                        <a href="#" class="hover:text-[#b59a6d] transition duration-500"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-[#b59a6d] transition duration-500"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule -->
+    <section id="schedule" class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-20 reveal">
+            <h2 class="text-3xl md:text-4xl font-bold section-title font-cinzel uppercase tracking-widest mx-auto w-fit">Information</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-10">
+            <div class="bg-white p-12 shadow-sm border border-zinc-100 hover-lift reveal">
+                <div class="text-[#b59a6d] text-2xl mb-6"><i class="far fa-calendar-alt"></i></div>
+                <h4 class="text-xl font-bold mb-6 font-cinzel tracking-wider">Schedule</h4>
+                <p class="text-zinc-500 text-sm leading-relaxed">毎週 土曜日・日曜日<br>19:00 〜 START</p>
+            </div>
+            <div class="bg-white p-12 shadow-sm border-t-4 border-[#b59a6d] hover-lift reveal" style="transition-delay: 0.2s;">
+                <div class="text-[#b59a6d] text-2xl mb-6"><i class="fas fa-map-marker-alt"></i></div>
+                <h4 class="text-xl font-bold mb-6 font-cinzel tracking-wider">Location</h4>
+                <p class="text-zinc-500 text-sm leading-relaxed">Floating Studio<br>場所は随時メンバーへ通知。<br>（都内スタジオ中心）</p>
+            </div>
+            <div class="bg-white p-12 shadow-sm border border-zinc-100 hover-lift reveal" style="transition-delay: 0.4s;">
+                <div class="text-[#b59a6d] text-2xl mb-6"><i class="fas fa-user-plus"></i></div>
+                <h4 class="text-xl font-bold mb-6 font-cinzel tracking-wider">Recruit</h4>
+                <p class="text-zinc-500 text-sm leading-relaxed">門下生 随時募集中。<br>初心者・大人の方、大歓迎です。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="join" class="py-40 bg-zinc-950 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 pointer-events-none flex items-center justify-center">
+            <p class="font-cinzel text-[20vw] font-bold text-white uppercase select-none">Contact</p>
+        </div>
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10 reveal">
+            <h2 class="text-4xl md:text-6xl font-bold mb-10 font-cinzel tracking-[0.2em] uppercase">Are you ready?</h2>
+            <p class="text-lg md:text-xl mb-16 text-zinc-400 font-light leading-relaxed">扉は、いつでも開かれています。<br>まずは気軽にご連絡ください。</p>
+            <div class="flex flex-col md:flex-row justify-center gap-6">
+                <a href="mailto:info@dfc-crew.jp" class="bg-[#b59a6d] text-white px-12 py-5 font-bold tracking-[0.2em] hover:bg-white hover:text-black transition duration-500 text-xs uppercase">
+                    Email Inquiry
+                </a>
+                <a href="#" class="border border-zinc-700 text-white px-12 py-5 font-bold tracking-[0.2em] hover:bg-white hover:text-black transition duration-500 text-xs uppercase">
+                    Line Contact
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 px-6 bg-white border-t border-zinc-100">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-zinc-400 text-[9px] tracking-[0.4em] font-inter uppercase">
+            <div class="mb-8 md:mb-0">
+                <!-- Footer Logo -->
+                <img src="https://raw.githubusercontent.com/compactdisk0828-DiSKSYSTEM/daisukefamilycrew/main/DFC-logo.jpg" alt="DFC Logo" class="h-6 mb-4 grayscale opacity-40">
+                <p>&copy; 2024 DFC DAISUKE FAMILY CREW.</p>
+            </div>
+            <div class="flex space-x-12">
+                <a href="#" class="hover:text-zinc-900 transition">Instagram</a>
+                <a href="#" class="hover:text-zinc-900 transition">Youtube</a>
+                <a href="#" class="hover:text-zinc-900 transition">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const reveal = () => {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                const elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    el.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', reveal);
+        window.addEventListener('load', () => {
+            reveal();
+        });
+    </script>
+</body>
+</html>
