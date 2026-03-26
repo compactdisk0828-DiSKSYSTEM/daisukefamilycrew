@@ -14,7 +14,6 @@
             --hiphop-gold: #ffd700;
             --hiphop-silver: #e0e0e0;
             --hiphop-red: #cc0000;
-            --glass-shine: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%);
         }
 
         body {
@@ -22,7 +21,6 @@
             background-color: var(--hiphop-black);
             color: #fff;
             margin: 0;
-            /* 2000年代風のレンガ背景テクスチャ */
             background-image: 
                 linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
                 url('https://www.transparenttextures.com/patterns/brick-wall-dark.png');
@@ -31,7 +29,6 @@
         .font-brand { font-family: 'Bangers', cursive; }
         .font-oswald { font-family: 'Oswald', sans-serif; }
 
-        /* 00s メタリックボタン */
         .btn-metallic {
             background: linear-gradient(to bottom, #444, #111);
             border: 2px solid #555;
@@ -51,7 +48,6 @@
             box-shadow: 0 2px 0 #000;
         }
 
-        /* ギラギラのゴールドテキスト */
         .text-shiny-gold {
             background: linear-gradient(to bottom, #fff700 20%, #ffcc00 45%, #b8860b 50%, #ffcc00 55%, #fff700 80%);
             -webkit-background-clip: text;
@@ -59,13 +55,11 @@
             filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.8));
         }
 
-        /* ネオン・グロー */
         .neon-border {
             border: 2px solid var(--hiphop-gold);
             box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
         }
 
-        /* 2000年代風カード */
         .card-00s {
             background: rgba(30, 30, 30, 0.9);
             border-left: 5px solid var(--hiphop-gold);
@@ -82,14 +76,38 @@
             transform: scale(1);
         }
 
-        /* 写真の淵の装飾 */
         .photo-frame {
             border: 10px solid #fff;
             box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
             transform: rotate(-1deg);
         }
 
-        /* カスタムスクロールバー */
+        /* アコーディオンのスタイル */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .accordion-item.active .accordion-content {
+            max-height: 4000px;
+            padding-bottom: 2rem;
+            padding-top: 1rem;
+        }
+        .accordion-item.active .chevron-icon {
+            transform: rotate(180deg);
+        }
+
+        /* アルバム表紙の装飾 */
+        .album-cover {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            flex-shrink: 0;
+            border: 2px solid #fff;
+            box-shadow: 3px 3px 0px var(--hiphop-gold);
+            overflow: hidden;
+        }
+
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #111; }
         ::-webkit-scrollbar-thumb { background: var(--hiphop-gold); }
@@ -108,6 +126,7 @@
                 <a href="#concept" class="text-white hover:text-[#ffd700] transition">Concept</a>
                 <a href="#instructor" class="text-white hover:text-[#ffd700] transition">Message</a>
                 <a href="#schedule" class="text-white hover:text-[#ffd700] transition">Information</a>
+                <a href="#history" class="text-white hover:text-[#ffd700] transition">History</a>
                 <a href="#join" class="btn-metallic px-6 py-2 rounded text-[#ffd700] border-[#ffd700]">Contact</a>
             </div>
             <button class="md:hidden text-2xl text-[#ffd700]"><i class="fas fa-bolt"></i></button>
@@ -132,27 +151,22 @@
                 </a>
             </div>
         </div>
-        
-        <!-- Animated Elements -->
-        <div class="absolute bottom-10 left-10 hidden lg:block animate-bounce">
-            <i class="fas fa-compact-disc text-5xl text-[#ffd700] opacity-50"></i>
-        </div>
     </section>
 
-    <!-- Concept -->
+    <!-- Concept Section -->
     <section id="concept" class="py-24 px-6 max-w-7xl mx-auto bg-zinc-900/50 my-20 rounded-xl neon-border">
         <div class="grid md:grid-cols-2 gap-16 items-center">
             <div class="reveal order-2 md:order-1">
                 <h2 class="font-brand text-5xl text-shiny-gold mb-8 italic uppercase tracking-widest">Concept</h2>
                 <div class="space-y-6 text-zinc-300">
                     <p class="text-2xl font-black text-white italic border-l-4 border-[#ffd700] pl-4">"THE REAL FAMILY VIBES"</p>
-                    <p class="text-lg leading-relaxed">
+                    <p class="text-lg leading-relaxed text-justify">
                         DFC（DAISUKE FAMILY CREW）の原点は、ダンスを通じて出会った仲間たちとキャンプや旅行を全力で楽しむ「遊び場」から始まりました。
                     </p>
-                    <p class="text-lg leading-relaxed">
+                    <p class="text-lg leading-relaxed text-justify">
                         次第にその絆は深まり、代表DAISUKEからダンスを学びたいという熱意が集結。都内での定期レッスン開催を機に、数々のイベントへ参戦する本格的なダンスクルーへと進化を遂げました。
                     </p>
-                    <p class="text-lg leading-relaxed">
+                    <p class="text-lg leading-relaxed text-justify">
                         ただのスクールではなく、人生を謳歌する「家族（Family）」のような存在。それがDFCです。ストリートの魂を胸に、最高の瞬間を共に作り上げましょう。
                     </p>
                 </div>
@@ -165,7 +179,7 @@
         </div>
     </section>
 
-    <!-- Instructor / Message Section -->
+    <!-- Instructor Section -->
     <section id="instructor" class="py-32 bg-black border-y-8 border-zinc-800">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row gap-16 items-center">
@@ -182,14 +196,14 @@
                         <p class="text-lg sm:text-xl leading-relaxed font-bold border-l-4 border-[#ffd700] pl-4 italic text-white">
                             「DFC代表　DAISUKEから皆さんへ」
                         </p>
-                        <p class="text-base sm:text-lg leading-relaxed">
+                        <p class="text-base sm:text-lg leading-relaxed text-justify">
                             DFCは、子供から大人まで、幅広い世代がダンスを心から楽しめる「サークル」を大切にしています。親子三世代、お孫さんと一緒でも大歓迎。初めての方も経験者の方も、まずは「楽しく踊る」というシンプルで一番大事なことを共有しましょう。
                         </p>
-                        <p class="text-base sm:text-lg leading-relaxed">
+                        <p class="text-base sm:text-lg leading-relaxed text-justify">
                             ダンスはあくまで入口。僕たちが目指すのは、ダンスを通じて人と繋がり、そこからキャンプ, スポーツ, 合宿といった様々な趣味やライフスタイルへとコミュニティを広げていくことです。
                         </p>
-                        <p class="text-base sm:text-lg leading-relaxed">
-                            おかげさして今年で23年目。海でのイベントや多種多様な活動を通して、単なる「習い事」以上のリアルな繋がりを作ってきました。初心者も経験者も、僕たちの輪に飛び込んできてください。
+                        <p class="text-base sm:text-lg leading-relaxed text-justify">
+                            おかげさまで今年で23年目。海でのイベントや多種多様な活動を通して、単なる「習い事」以上のリアルな繋がりを作ってきました。初心者も経験者も、僕たちの輪に飛び込んできてください。
                         </p>
                     </div>
                     <div class="flex space-x-6 text-3xl">
@@ -201,35 +215,129 @@
         </div>
     </section>
 
-    <!-- Schedule/Info -->
+    <!-- Crew Information Section -->
     <section id="schedule" class="py-24 px-6 max-w-7xl mx-auto">
         <h2 class="font-brand text-5xl text-shiny-gold text-center mb-16 italic uppercase tracking-widest reveal">Crew Information</h2>
-        <div class="grid md:grid-cols-3 gap-8">
+        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <div class="card-00s p-8 reveal" style="transition-delay: 0.1s;">
                 <div class="flex items-center space-x-4 mb-6">
-                    <i class="fas fa-clock text-3xl text-[#ffd700]"></i>
+                    <i class="fas fa-calendar-alt text-3xl text-[#ffd700]"></i>
                     <h4 class="font-oswald text-2xl font-bold italic uppercase">Schedule</h4>
                 </div>
-                <p class="text-zinc-400 font-bold">Every Sat & Sun</p>
-                <p class="text-3xl font-black text-white italic">19:00 START</p>
+                <div class="space-y-6">
+                    <div>
+                        <p class="text-[#ffd700] font-bold text-sm uppercase tracking-wider mb-1">江戸川区（えどねっと施設利用）</p>
+                        <p class="text-white font-bold">第1・第3土曜日：<span class="text-xl italic">19時以降</span></p>
+                        <p class="text-white font-bold">第2・第4日曜日：<span class="text-xl italic">14時 または 18時以降</span></p>
+                    </div>
+                    <div class="pt-4 border-t border-zinc-700">
+                        <p class="text-[#ffd700] font-bold text-sm uppercase tracking-wider mb-1">千葉県船橋市近郊</p>
+                        <p class="text-white font-bold">木曜日（月1回）：<span class="text-xl italic">20時以降</span></p>
+                    </div>
+                </div>
             </div>
+
             <div class="card-00s p-8 border-l-[#fff] reveal" style="transition-delay: 0.2s;">
                 <div class="flex items-center space-x-4 mb-6">
-                    <i class="fas fa-bullhorn text-3xl text-white"></i>
+                    <i class="fas fa-map-marker-alt text-3xl text-white"></i>
                     <h4 class="font-oswald text-2xl font-bold italic uppercase">Location</h4>
                 </div>
-                <p class="text-zinc-400 font-bold">Tokyo Secret Spot</p>
-                <p class="text-xl font-black text-white italic">Floating Studio</p>
-                <p class="text-xs mt-2 text-zinc-500 italic">※場所は公式LINEよりメンバー限定通知</p>
-            </div>
-            <div class="card-00s p-8 reveal" style="transition-delay: 0.3s;">
-                <div class="flex items-center space-x-4 mb-6">
-                    <i class="fas fa-fist-raised text-3xl text-[#ffd700]"></i>
-                    <h4 class="font-oswald text-2xl font-bold italic uppercase">History</h4>
+                <div class="flex flex-col justify-center h-full pb-8">
+                    <p class="text-4xl font-black text-white italic mb-2 tracking-tighter">江戸川区</p>
+                    <p class="text-shiny-gold text-2xl font-brand italic my-2">&</p>
+                    <p class="text-3xl font-black text-white italic tracking-tighter text-wrap">千葉県船橋市近郊</p>
+                    <p class="text-xs mt-6 text-zinc-500 italic">※詳細な練習場所は公式LINEよりメンバーへ通知します</p>
                 </div>
-                <p class="text-zinc-400 font-bold">Since 2003</p>
-                <p class="text-xl font-black text-[#ffd700] italic underline uppercase">23rd Anniversary</p>
-                <p class="text-sm mt-2">初心者から経験者まで、全世代の絆がここにある。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activity History Section -->
+    <section id="history" class="py-24 bg-zinc-950 border-t-8 border-zinc-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="font-brand text-5xl text-shiny-gold text-center mb-16 italic uppercase tracking-widest reveal">Activity History</h2>
+            
+            <div class="space-y-6 max-w-4xl mx-auto">
+                <!-- Album 01: Event -->
+                <div class="accordion-item reveal bg-zinc-900 border-2 border-zinc-800 rounded-xl overflow-hidden shadow-2xl" style="transition-delay: 0.1s;">
+                    <button class="w-full flex items-center p-4 md:p-6 text-left hover:bg-zinc-800/80 transition group" onclick="toggleAccordion(this)">
+                        <div class="album-cover mr-6 group-hover:scale-110 transition duration-500">
+                            <img src="LINE_ALBUM_イベント_260325_1.jpg" alt="Event Cover" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-grow">
+                            <span class="block font-brand text-shiny-gold text-xl md:text-2xl mb-1 italic">Album 01</span>
+                            <span class="block font-oswald text-xl md:text-3xl font-bold italic uppercase tracking-widest text-white leading-tight">Event / Stages</span>
+                        </div>
+                        <i class="fas fa-chevron-down chevron-icon transition text-[#ffd700] text-2xl ml-4"></i>
+                    </button>
+                    <div class="accordion-content px-6">
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 border-t border-zinc-800 pt-6">
+                            <img src="LINE_ALBUM_イベント_260325_1.jpg" alt="Event 1" class="w-full h-32 md:h-48 object-cover rounded border border-zinc-700 hover:brightness-125 transition">
+                            <img src="LINE_ALBUM_イベント_260325_2.jpg" alt="Event 2" class="w-full h-32 md:h-48 object-cover rounded border border-zinc-700 hover:brightness-125 transition">
+                            <img src="LINE_ALBUM_イベント_260325_3.jpg" alt="Event 3" class="w-full h-32 md:h-48 object-cover rounded border border-zinc-700 hover:brightness-125 transition">
+                            <img src="LINE_ALBUM_イベント_260325_4.jpg" alt="Event 4" class="w-full h-32 md:h-48 object-cover rounded border border-zinc-700 hover:brightness-125 transition">
+                            <img src="LINE_ALBUM_イベント_260325_5.jpg" alt="Event 5" class="w-full h-32 md:h-48 object-cover rounded border border-zinc-700 hover:brightness-125 transition">
+                            <img src="LINE_ALBUM_イベント_260325_6.jpg" alt="Event 6" class="w-full h-32 md:h-48 object-cover rounded border border-zinc-700 hover:brightness-125 transition">
+                            <img src="LINE_ALBUM_イベント_260325_7.jpg" alt="Event 7" class="w-full h-32 md:h-48 object-cover rounded border border-zinc-700 hover:brightness-125 transition">
+                            <img src="LINE_ALBUM_イベント_260325_8.jpg" alt="Event 8" class="w-full h-32 md:h-48 object-cover rounded border border-zinc-700 hover:brightness-125 transition">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Album 02: Workshop -->
+                <div class="accordion-item reveal bg-zinc-900 border-2 border-zinc-800 rounded-xl overflow-hidden shadow-2xl" style="transition-delay: 0.2s;">
+                    <button class="w-full flex items-center p-4 md:p-6 text-left hover:bg-zinc-800/80 transition group" onclick="toggleAccordion(this)">
+                        <div class="album-cover mr-6 group-hover:scale-110 transition duration-500">
+                            <img src="LINE_ALBUM_ワークショップ_260325_1.jpg" alt="Workshop Cover" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-grow">
+                            <span class="block font-brand text-shiny-gold text-xl md:text-2xl mb-1 italic">Album 02</span>
+                            <span class="block font-oswald text-xl md:text-3xl font-bold italic uppercase tracking-widest text-white leading-tight">Workshop / Lessons</span>
+                        </div>
+                        <i class="fas fa-chevron-down chevron-icon transition text-[#ffd700] text-2xl ml-4"></i>
+                    </button>
+                    <div class="accordion-content px-6">
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 border-t border-zinc-800 pt-6">
+                            <img src="LINE_ALBUM_ワークショップ_260325_1.jpg" alt="Workshop 1" class="w-full h-32 md:h-48 object-cover rounded border border-zinc-700 hover:brightness-125 transition">
+                            <img src="LINE_ALBUM_ワークショップ_260325_2.jpg" alt="Workshop 2" class="w-full h-32 md:h-48 object-cover rounded border border-zinc-700 hover:brightness-125 transition">
+                            <img src="LINE_ALBUM_ワークショップ_260325_3.jpg" alt="Workshop 3" class="w-full h-32 md:h-48 object-cover rounded border border-zinc-700 hover:brightness-125 transition">
+                            <img src="LINE_ALBUM_ワークショップ_260325_4.jpg" alt="Workshop 4" class="w-full h-32 md:h-48 object-cover rounded border border-zinc-700 hover:brightness-125 transition">
+                            <img src="LINE_ALBUM_ワークショップ_260325_5.jpg" alt="Workshop 5" class="w-full h-32 md:h-48 object-cover rounded border border-zinc-700 hover:brightness-125 transition">
+                            <img src="LINE_ALBUM_ワークショップ_260325_6.jpg" alt="Workshop 6" class="w-full h-32 md:h-48 object-cover rounded border border-zinc-700 hover:brightness-125 transition">
+                            <img src="LINE_ALBUM_ワークショップ_260325_7.jpg" alt="Workshop 7" class="w-full h-32 md:h-48 object-cover rounded border border-zinc-700 hover:brightness-125 transition">
+                            <img src="LINE_ALBUM_ワークショップ_260325_8.jpg" alt="Workshop 8" class="w-full h-32 md:h-48 object-cover rounded border border-zinc-700 hover:brightness-125 transition">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Album 03: Camp (Photos Updated) -->
+                <div class="accordion-item reveal bg-zinc-900 border-2 border-zinc-800 rounded-xl overflow-hidden shadow-2xl" style="transition-delay: 0.3s;">
+                    <button class="w-full flex items-center p-4 md:p-6 text-left hover:bg-zinc-800/80 transition group" onclick="toggleAccordion(this)">
+                        <div class="album-cover mr-6 group-hover:scale-110 transition duration-500">
+                            <!-- 合宿アルバムの1枚目を表紙に設定 -->
+                            <img src="LINE_ALBUM_合宿_260325_1.jpg" alt="Camp Cover" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-grow">
+                            <span class="block font-brand text-shiny-gold text-xl md:text-2xl mb-1 italic">Album 03</span>
+                            <span class="block font-oswald text-xl md:text-3xl font-bold italic uppercase tracking-widest text-white leading-tight">Camp / Family Trip</span>
+                        </div>
+                        <i class="fas fa-chevron-down chevron-icon transition text-[#ffd700] text-2xl ml-4"></i>
+                    </button>
+                    <div class="accordion-content px-6">
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 border-t border-zinc-800 pt-6">
+                            <img src="LINE_ALBUM_合宿_260325_1.jpg" alt="Camp 1" class="w-full h-32 md:h-48 object-cover rounded border border-zinc-700 hover:brightness-125 transition">
+                            <img src="LINE_ALBUM_合宿_260325_2.jpg" alt="Camp 2" class="w-full h-32 md:h-48 object-cover rounded border border-zinc-700 hover:brightness-125 transition">
+                            <img src="LINE_ALBUM_合宿_260325_3.jpg" alt="Camp 3" class="w-full h-32 md:h-48 object-cover rounded border border-zinc-700 hover:brightness-125 transition">
+                            <img src="LINE_ALBUM_合宿_260325_4.jpg" alt="Camp 4" class="w-full h-32 md:h-48 object-cover rounded border border-zinc-700 hover:brightness-125 transition">
+                            <img src="LINE_ALBUM_合宿_260325_5.jpg" alt="Camp 5" class="w-full h-32 md:h-48 object-cover rounded border border-zinc-700 hover:brightness-125 transition">
+                            <img src="LINE_ALBUM_合宿_260325_6.jpg" alt="Camp 6" class="w-full h-32 md:h-48 object-cover rounded border border-zinc-700 hover:brightness-125 transition">
+                            <img src="LINE_ALBUM_合宿_260325_7.jpg" alt="Camp 7" class="w-full h-32 md:h-48 object-cover rounded border border-zinc-700 hover:brightness-125 transition">
+                            <img src="LINE_ALBUM_合宿_260325_8.jpg" alt="Camp 8" class="w-full h-32 md:h-48 object-cover rounded border border-zinc-700 hover:brightness-125 transition">
+                            <img src="LINE_ALBUM_合宿_260325_9.jpg" alt="Camp 9" class="w-full h-32 md:h-48 object-cover rounded border border-zinc-700 hover:brightness-125 transition">
+                            <img src="LINE_ALBUM_合宿_260325_10.jpg" alt="Camp 10" class="w-full h-32 md:h-48 object-cover rounded border border-zinc-700 hover:brightness-125 transition">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -241,7 +349,7 @@
         </div>
         <div class="max-w-4xl mx-auto px-6 text-center relative z-10 reveal">
             <h2 class="font-brand text-6xl md:text-8xl text-shiny-gold mb-6 italic">HIT US UP!</h2>
-            <p class="text-xl md:text-2xl mb-12 font-black italic tracking-widest text-white">JOIN THE DAISUKE FAMILY CREW</p>
+            <p class="text-xl md:text-2xl mb-12 font-black italic tracking-widest text-white uppercase">Join The Daisuke Family Crew</p>
             <div class="flex flex-col md:flex-row justify-center gap-4">
                 <a href="mailto:info@dfc-crew.jp" class="btn-metallic px-10 py-5 rounded-lg text-white font-black italic uppercase tracking-widest text-lg">
                     Send Email
@@ -262,6 +370,22 @@
     </footer>
 
     <script>
+        function toggleAccordion(button) {
+            const item = button.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Close other items
+            document.querySelectorAll('.accordion-item').forEach(el => {
+                if(el !== item) el.classList.remove('active');
+            });
+            
+            if (!isActive) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        }
+
         const reveal = () => {
             const reveals = document.querySelectorAll('.reveal');
             reveals.forEach(el => {
@@ -275,9 +399,7 @@
         };
 
         window.addEventListener('scroll', reveal);
-        window.addEventListener('load', () => {
-            reveal();
-        });
+        window.addEventListener('load', reveal);
     </script>
 </body>
 </html>
